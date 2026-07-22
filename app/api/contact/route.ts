@@ -1,4 +1,4 @@
-import { createClient } from "@/lib/supabase/server";
+import { createAdminClient } from "@/lib/supabase/server";
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
@@ -50,7 +50,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const supabase = await createClient();
+    const supabase = await createAdminClient();
 
     // Save booking to database
     const { data: booking, error: dbError } = await supabase
